@@ -1,8 +1,11 @@
 package LM;
 
+import java.lang.String;
+
 public class Libro {
 
     private String titolo;
+    private String autore;
     private int nPagine;
     private String CasaEditrice;
     private int AnnoUscita;
@@ -10,11 +13,13 @@ public class Libro {
     private int nCopie;
     private String ISBN;
     private int dewey;
+    private int ID; //ID del libro nel database
 
 
-    public Libro (String titolo, int nPagine, String CasaEditrice, int AnnoUscita, String lingua, int nCopie, String ISBN, int dewey){
+    public Libro (String titolo, String autore, int nPagine, String CasaEditrice, int AnnoUscita, String lingua, int nCopie, String ISBN, int dewey, int ID){
 
         this.titolo = titolo;
+        this.autore = autore;
         this.nPagine = nPagine;
         this.CasaEditrice = CasaEditrice;
         this.AnnoUscita = AnnoUscita;
@@ -22,6 +27,35 @@ public class Libro {
         this.nCopie = nCopie;
         this.ISBN = ISBN;
         this.dewey = dewey;
+        this.ID = ID;
+
+    }
+
+    //Costruttore per copia
+    public Libro (Libro libro){
+
+        this.titolo = libro.getTitolo();
+        this.autore = libro.getAutore();
+        this.nPagine = libro.getnPagine();
+        this.CasaEditrice = libro.getCasaEditrice();
+        this.AnnoUscita = libro.getAnnoUscita();
+        this.lingua = libro.getLingua();
+        this.nCopie = libro.getnCopie();
+        this.ISBN = libro.getISBN();
+        this.dewey = libro.getDewey();
+        this.ID = libro.getID();
+
+    }
+
+    public String getAutore() {
+
+        return autore;
+
+    }
+
+    private String setAutore() {
+
+        return autore;
 
     }
 
@@ -121,18 +155,18 @@ public class Libro {
 
     }
 
-    @Override
-    public String toString() {
+    public int getID() {
 
-        return "Libro:" +
-                "\ntitolo : " + titolo +
-                "\nnPagine : " + nPagine +
-                "\nCasaEditrice : " + CasaEditrice +
-                "\nAnnoUscita : " + AnnoUscita +
-                "\nlingua : " + lingua +
-                "\nnCopie : " + nCopie +
-                "\nISBN : " + ISBN +
-                "\ndewey : " + dewey;
+    	return ID;
 
     }
+
+    public void setID(int ID) {
+
+    	this.ID = ID;
+
+    }
+
+
+
 }
