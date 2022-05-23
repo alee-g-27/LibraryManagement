@@ -1,6 +1,7 @@
 import LM.*;
 import org.json.simple.parser.ParseException;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -42,7 +43,7 @@ public class main {
 
                 } catch (InputMismatchException ime) {
 
-                    System.out.println("Errore! \nInserire un numero da 1 a 4");
+                    System.out.println("\nErrore! \nInserire un numero da 1 a 4\n");
                     input.nextLine();
                     errore = true;
 
@@ -64,6 +65,8 @@ public class main {
 
                     Login login = new Login(username, password, "admin");
 
+                    boolean exit1 = false;
+
                     if (userReader(username, password, "admin")) {
 
                         System.out.print("\033[H\033[2J");
@@ -71,100 +74,122 @@ public class main {
 
                         Admin admin = new Admin(username, password);
 
-                        System.out.println("Benvenuto " + admin.getNome() + "!");
+                        System.out.println("\nBenvenuto " + admin.getNome() + "!\n");
 
-                        System.out.println("1. Elimina account\n" +
-                                "2. Inserisci libro\n" +
-                                "3. Elimina libro\n" +
-                                "4. Modifica libro\n" +
-                                "5. Visualizza libri\n");
+                        do {
 
-                        System.out.println("Selezionare un'opzione: ");
+                            boolean errore1 = true;
+                            int sceltaAdmin = 0;
 
-                        int sceltaAdmin = input.nextInt();
+                            while (errore1) {
+                                try {
+                                    errore1 = false;
+                                    System.out.println("1. Elimina account\n" +
+                                            "2. Inserisci libro\n" +
+                                            "3. Elimina libro\n" +
+                                            "4. Modifica libro\n" +
+                                            "5. Visualizza libri\n" +
+                                            "6. Logout\n");
 
-                        switch (sceltaAdmin) {
-                            case 1:
+                                    System.out.println("Selezionare un'opzione: ");
+                                    sceltaAdmin = input.nextInt();
 
-                                System.out.println("\nEliminazione account\n");
-                                System.out.println("Inserire il nome utente da eliminare: ");
-                                String usernamedaEliminare = input.next();
+                                } catch (InputMismatchException ime) {
+                                    System.out.println("\nErrore! \nInserire un numero da 1 a 6\n");
+                                    input.nextLine();
+                                    errore1 = true;
+                                }
+                            }
 
-                                eliminaUtente(usernamedaEliminare);
+                            switch (sceltaAdmin) {
+                                case 1:
 
-                            break;
+                                    System.out.println("\nEliminazione account\n");
+                                    System.out.println("Inserire il nome utente da eliminare: ");
+                                    String usernamedaEliminare = input.next();
 
-                            case 2:
+                                    eliminaUtente(usernamedaEliminare);
 
-                                System.out.println("\nInserisci libro\n");
+                                    break;
 
-                                System.out.println("Inserire il titolo del libro: ");
-                                String titolo = input.next();
+                                case 2:
 
-                                System.out.println("Inserire l'autore del libro: ");
-                                String autore = input.next();
+                                    System.out.println("\nInserisci libro\n");
 
-                                System.out.println("Inseire il numero delle pagine del libro: ");
-                                int numeroPagine = input.nextInt();
+                                    System.out.println("Inserire il titolo del libro: ");
+                                    String titolo = input.next();
 
-                                System.out.println("Inserire la casa editrice del libro: ");
-                                String casaEditrice = input.next();
+                                    System.out.println("Inserire l'autore del libro: ");
+                                    String autore = input.next();
 
-                                System.out.println("Inserire l'anno di uscita del libro: ");
-                                int annoUscita = input.nextInt();
+                                    System.out.println("Inseire il numero delle pagine del libro: ");
+                                    int numeroPagine = input.nextInt();
 
-                                System.out.println("Inserire la lingua del libro: ");
-                                String lingua = input.next();
+                                    System.out.println("Inserire la casa editrice del libro: ");
+                                    String casaEditrice = input.next();
 
-                                System.out.println("Inserire il numero di copie del libro: ");
-                                int numeroCopie = input.nextInt();
+                                    System.out.println("Inserire l'anno di uscita del libro: ");
+                                    int annoUscita = input.nextInt();
 
-                                System.out.println("Inserire l'ISBN del libro: ");
-                                String isbn = input.next();
+                                    System.out.println("Inserire la lingua del libro: ");
+                                    String lingua = input.next();
 
-                                System.out.println("Inserire il codice Dewey del libro: ");
-                                int codiceDewey = input.nextInt();
+                                    System.out.println("Inserire il numero di copie del libro: ");
+                                    int numeroCopie = input.nextInt();
 
-                                System.out.println("Inserire l'ID del libro: ");
-                                int id = input.nextInt();
+                                    System.out.println("Inserire l'ISBN del libro: ");
+                                    String isbn = input.next();
 
-                                Libro libro = new Libro(titolo, autore, numeroPagine, casaEditrice, annoUscita, lingua, numeroCopie, isbn, codiceDewey, id);
+                                    System.out.println("Inserire il codice Dewey del libro: ");
+                                    int codiceDewey = input.nextInt();
 
-                                creaLibro(libro);
+                                    System.out.println("Inserire l'ID del libro: ");
+                                    int id = input.nextInt();
 
-                            break;
+                                    Libro libro = new Libro(titolo, autore, numeroPagine, casaEditrice, annoUscita, lingua, numeroCopie, isbn, codiceDewey, id);
 
-                            case 3:
+                                    creaLibro(libro);
 
-                                System.out.println("\nEliminazione libro\n");
-                                System.out.println("Inserire l'ID del libro da eliminare: ");
-                                int idLibroEliminare = input.nextInt();
+                                    break;
 
-                                eliminaLibro(idLibroEliminare);
+                                case 3:
 
-                            break;
+                                    System.out.println("\nEliminazione libro\n");
+                                    System.out.println("Inserire l'ID del libro da eliminare: ");
+                                    int idLibroEliminare = input.nextInt();
 
-                            case 4:
+                                    eliminaLibro(idLibroEliminare);
 
-                                System.out.println("\nModifica Libro\n");
-                                System.out.println("Inserire l'ID del libro da modificare: ");
-                                int idLibroModificare = input.nextInt();
+                                    break;
 
-                                eliminaLibro(idLibroModificare);
+                                case 4:
 
-                            break;
+                                    System.out.println("\nModifica Libro\n");
+                                    System.out.println("Inserire l'ID del libro da modificare: ");
+                                    int idLibroModificare = input.nextInt();
+
+                                    eliminaLibro(idLibroModificare);
+
+                                    break;
 
 
-                            case 5:
+                                case 5:
 
-                                System.out.println("\nVisualizza Libri\n");
-                                //admin.visualizzaLibri();
-                            default:
+                                    System.out.println("\nVisualizza Libri\n");
+                                    //admin.visualizzaLibri();
+                                    break;
 
-                                System.out.println("Opzione non valida!");
+                                case 6:
+                                    exit1 = true;
+                                    System.out.println("Logout...");
+                                    break;
+                                default:
 
-                            break;
-                        }
+                                    System.out.println("Opzione non valida!");
+
+                                    break;
+                            }
+                        }while(!exit1);
 
                     }
 
@@ -182,6 +207,8 @@ public class main {
 
                     Login login1 = new Login(usernameUtenteReg, passwordUtenteReg, "utente");
 
+                    boolean exit2 = false;
+
                     if (userReader(usernameUtenteReg, passwordUtenteReg, "utente")) {
 
                         System.out.print("\033[H\033[2J");
@@ -189,36 +216,68 @@ public class main {
 
                         UtenteRegistrato utenteRegistrato = new UtenteRegistrato(usernameUtenteReg, passwordUtenteReg, "utente");
 
-                        System.out.println("Benvenuto " + utenteRegistrato.getNome() + "!");
+                        System.out.println("\nBenvenuto " + utenteRegistrato.getNome() + "!\n");
 
-                        System.out.println("1. Invia Richiesta+" +
-                                "2. Leggi risposte\n" +
-                                "3. Elimina risposte\n");
+                        do {
 
-                        System.out.println("Selezionare un'opzione: ");
-                        int sceltaUtenteReg = input.nextInt();
+                            int sceltaUtenteReg = 0;
+                            boolean errore2 = true;
 
-                        switch (sceltaUtenteReg) {
+                            while(errore2) {
+                                try {
+                                    errore2 = false;
+                                    System.out.println("1. Invia Richiesta\n" +
+                                            "2. Leggi risposte\n" +
+                                            "3. Elimina risposte\n" +
+                                            "4. Logout\n");
 
-                            case 1:
+                                    System.out.println("Selezionare un'opzione: ");
+                                    sceltaUtenteReg = input.nextInt();
 
-                                System.out.println("\nInserimento Richiesta\n");
+                                } catch (InputMismatchException ime) {
+                                    System.out.println("\nErrore! \nInserire un numero da 1 a 4\n");
+                                    input.nextLine();
+                                    errore2 = true;
+                                }
+                            }
 
-                                System.out.println("Inserire il messaggio: ");
+                            switch (sceltaUtenteReg) {
 
-                                input.nextLine();
-                                String messaggio = input.nextLine();
+                                case 1:
 
-                                InviaRichiesta(messaggio, utenteRegistrato.getNome());
-                            break;
+                                    System.out.println("\nInserimento Richiesta\n");
 
-                            case 2:
+                                    System.out.println("Inserire il messaggio: ");
 
-                                System.out.println("\nLeggi risposte\n");
+                                    input.nextLine();
+                                    String messaggio = input.nextLine();
 
-                            break;
+                                    InviaRichiesta(messaggio, utenteRegistrato.getNome());
+                                    break;
 
-                        }
+                                case 2:
+
+                                    System.out.println("\nLeggi risposte\n");
+
+                                    break;
+                                case 3:
+
+                                    System.out.println("\nElimina Risposte\n");
+
+                                    break;
+
+                                case 4:
+
+                                    exit2 = true;
+                                    System.out.println("Logout...");
+                                    break;
+                                default :
+
+                                    System.out.println("\nScelta non valida\n");
+
+                                    break;
+                            }
+                        }while(!exit2);
 
                     }
 
