@@ -14,49 +14,49 @@ public class JSONModifier {
 
     public static void creaLibro (Libro libro) {
 
-            try {
-                String titolodaTrovare = libro.getTitolo();
-                if (verificaLibro(titolodaTrovare)==false) {
+        try {
+            String titolodaTrovare = libro.getTitolo();
+            if (verificaLibro(titolodaTrovare)==false) {
 
-                    System.out.println("Creazione libro in corso...");
-                    JSONParser jsonParser = new JSONParser();
-                    FileReader reader = new FileReader(".settings/books.json");
-                    //Read JSON file
-                    JSONArray bookObject = (JSONArray)jsonParser.parse(reader);
+                System.out.println("Creazione libro in corso...");
+                JSONParser jsonParser = new JSONParser();
+                FileReader reader = new FileReader(".settings/books.json");
+                //Read JSON file
+                JSONArray bookObject = (JSONArray)jsonParser.parse(reader);
 
-                    //Create JSON Object
-                    JSONObject book = new JSONObject();
-                    book.put("titolo", libro.getTitolo());
-                    book.put("autore", libro.getAutore());
-                    book.put("nPagine", libro.getnPagine());
-                    book.put("CasaEditrice", libro.getCasaEditrice());
-                    book.put("AnnoUscita", libro.getAnnoUscita());
-                    book.put("lingua", libro.getLingua());
-                    book.put("nCopie", libro.getnCopie());
-                    book.put("ISBN", libro.getISBN());
-                    book.put("dewey", libro.getDewey());
-                    book.put("ID", libro.getID());
+                //Create JSON Object
+                JSONObject book = new JSONObject();
+                book.put("titolo", libro.getTitolo());
+                book.put("autore", libro.getAutore());
+                book.put("nPagine", libro.getnPagine());
+                book.put("CasaEditrice", libro.getCasaEditrice());
+                book.put("AnnoUscita", libro.getAnnoUscita());
+                book.put("lingua", libro.getLingua());
+                book.put("nCopie", libro.getnCopie());
+                book.put("ISBN", libro.getISBN());
+                book.put("dewey", libro.getDewey());
+                book.put("ID", libro.getID());
 
-                    //Add JSON Object to JSON Array
-                    bookObject.add(book);
+                //Add JSON Object to JSON Array
+                bookObject.add(book);
 
-                    //Write JSON file
-                    FileWriter file = new FileWriter(".settings/books.json");
-                    file.write(bookObject.toJSONString());
-                    file.flush();
-                    System.out.println("Libro inserito con successo!");
-
-                }
-
-            } catch (IOException e) {
-
-                e.printStackTrace();
-
-            } catch (ParseException e) {
-
-                e.printStackTrace();
+                //Write JSON file
+                FileWriter file = new FileWriter(".settings/books.json");
+                file.write(bookObject.toJSONString());
+                file.flush();
+                System.out.println("Libro inserito con successo!");
 
             }
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        } catch (ParseException e) {
+
+            e.printStackTrace();
+
+        }
 
     }
 
@@ -346,27 +346,27 @@ public class JSONModifier {
 
         //Verificare se l'utente esiste già
         try {
-             System.out.println("Invio richiesta in corso...");
-                //JSON parser object to parse read file
-                JSONParser jsonParser = new JSONParser();
-                FileReader reader = new FileReader(".settings/request.json");
-                //Read JSON file
-                JSONArray richiestaObject = (JSONArray)jsonParser.parse(reader);
-                //JSONArray  = (JSONArray) obj;
+            System.out.println("Invio richiesta in corso...");
+            //JSON parser object to parse read file
+            JSONParser jsonParser = new JSONParser();
+            FileReader reader = new FileReader(".settings/request.json");
+            //Read JSON file
+            JSONArray richiestaObject = (JSONArray)jsonParser.parse(reader);
+            //JSONArray  = (JSONArray) obj;
 
-                //Create JSON Object
-                JSONObject richiesta = new JSONObject();
-                richiesta.put("Nome Utente", NomeUtente);
-                richiesta.put("Richiesta", Richiesta);
+            //Create JSON Object
+            JSONObject richiesta = new JSONObject();
+            richiesta.put("Nome Utente", NomeUtente);
+            richiesta.put("Richiesta", Richiesta);
 
-                //Add JSON Object to JSON Array
-                richiestaObject.add(richiesta);
+            //Add JSON Object to JSON Array
+            richiestaObject.add(richiesta);
 
-                //Write JSON file
-                FileWriter file = new FileWriter(".settings/request.json");
-                file.write(richiestaObject.toJSONString());
-                file.flush();
-                System.out.println("Richiesta inviata!");
+            //Write JSON file
+            FileWriter file = new FileWriter(".settings/request.json");
+            file.write(richiestaObject.toJSONString());
+            file.flush();
+            System.out.println("Richiesta inviata!");
 
         } catch (IOException e) {
 
