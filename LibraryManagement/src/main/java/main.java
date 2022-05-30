@@ -45,7 +45,11 @@ public class main {
 
                 } catch (InputMismatchException ime) {
 
+<<<<<<< HEAD
                     System.out.println("\nErrore! \nInserire un numero da 1 a 5\n");
+=======
+                    System.out.println("Errore! \nInserire un numero da 1 a 5");
+>>>>>>> ghironi
                     input.nextLine();
                     errore = true;
 
@@ -70,8 +74,11 @@ public class main {
                     String password = input.next();
 
                     VerificaCredenziali(username, password, "admin");
+<<<<<<< HEAD
 
                     boolean exit1 = false;
+=======
+>>>>>>> ghironi
 
                     if (userReader(username, password, "admin")) {
 
@@ -82,7 +89,14 @@ public class main {
 
                         System.out.println("\nBenvenuto " + admin.getNome() + "!\n");
 
+<<<<<<< HEAD
                         do {
+=======
+                        System.out.println("1. Elimina account\n" +
+                                "2. Modifica catalogo\n" +
+                                "3. Visualizza libri\n" +
+                                "4. Gestisci notifiche\n");
+>>>>>>> ghironi
 
                             boolean errore1 = true;
                             int sceltaAdmin = 0;
@@ -96,6 +110,7 @@ public class main {
                                             "4. Gestisci notifiche\n" +
                                             "5. Logout Admin");
 
+<<<<<<< HEAD
                                     System.out.println("Selezionare un'opzione: ");
                                     sceltaAdmin = input.nextInt();
 
@@ -105,6 +120,16 @@ public class main {
                                     errore1 = true;
                                 }
                             }
+=======
+                        switch (sceltaAdmin) {
+
+                            case 1:
+
+                                //ELIMINA ACCOUNT
+                                System.out.println("\nEliminazione account\n");
+                                System.out.println("Inserire il nome utente da eliminare: ");
+                                String usernamedaEliminare = input.next();
+>>>>>>> ghironi
 
                             switch (sceltaAdmin) {
                                 case 1:
@@ -115,6 +140,7 @@ public class main {
 
                                     eliminaUtente(usernamedaEliminare);
 
+<<<<<<< HEAD
                                     break;
 
                                 case 2:
@@ -162,6 +188,112 @@ public class main {
 
                                                 System.out.println("Inserire la casa editrice del libro: ");
                                                 String casaEditrice = input.next();
+=======
+                                //MODIFICA CATALOGO
+                                System.out.println("\nModifica catalogo\n");
+                                System.out.println("1. Aggiungi libro\n" +
+                                        "2. Elimina libro\n" +
+                                        "3. Modifica libro\n");
+                                System.out.println("Selezionare un'opzione: ");
+                                int sceltaModifica = input.nextInt();
+
+                                switch (sceltaModifica) {
+
+                                    case 1:
+
+                                        //INSERIMENTO LIBRO
+                                        System.out.println("\nInserisci libro\n");
+
+                                        System.out.println("Inserire il titolo del libro: ");
+                                        String titolo = input.next();
+
+                                        System.out.println("Inserire l'autore del libro: ");
+                                        String autore = input.next();
+
+                                        System.out.println("Inseire il numero delle pagine del libro: ");
+                                        int numeroPagine = input.nextInt();
+
+                                        System.out.println("Inserire la casa editrice del libro: ");
+                                        String casaEditrice = input.next();
+
+                                        System.out.println("Inserire l'anno di uscita del libro: ");
+                                        int annoUscita = input.nextInt();
+
+                                        System.out.println("Inserire la lingua del libro: ");
+                                        String lingua = input.next();
+
+                                        System.out.println("Inserire il numero di copie del libro: ");
+                                        int numeroCopie = input.nextInt();
+
+                                        System.out.println("Inserire l'ISBN del libro: ");
+                                        String isbn = input.next();
+
+                                        System.out.println("Inserire il codice Dewey del libro: ");
+                                        int codiceDewey = input.nextInt();
+
+                                        Libro libro = new Libro(titolo, autore, numeroPagine, casaEditrice, annoUscita, lingua, numeroCopie, isbn, codiceDewey);
+
+                                        creaLibro(libro);
+
+                                        break;
+
+                                    case 2:
+
+                                        //ELIMINAZIONE LIBRO
+                                        System.out.println("\nEliminazione libro\n");
+                                        visualizzaLibri();
+                                        System.out.println("Inserire l'ID del libro da eliminare: ");
+                                        int idLibroEliminare = input.nextInt();
+
+                                        eliminaLibro(idLibroEliminare);
+
+                                        break;
+
+                                    case 3:
+                                        //MODIFICA LIBRO
+                                        System.out.println("\nModifica Libro\n");
+                                        visualizzaLibri();
+                                        System.out.println("Inserire l'ID del libro da modificare: ");
+                                        int idLibroModificare = input.nextInt();
+
+                                        break;
+
+                                    case 4:
+                                        //GESTIONE NOTIFICHE
+                                        System.out.println("\nGestione notifiche\n");
+                                        System.out.println("1. Visualizza notifiche" +
+                                                "\n2. Invia notifica" +
+                                                "\n3. Elimina notifica" +
+                                                "\n4. Torna indietro");
+                                        int sceltaNotifiche = input.nextInt();
+
+                                        switch(sceltaNotifiche) {
+                                            case 1:
+                                                //VISUALIZZAZIONE NOTIFICHE
+                                                /*System.out.println("\nVisualizzazione notifiche\n");
+                                                visualizzaNotifiche();
+                                                break;*/
+
+                                            case 2:
+                                                //INVIO NOTIFICA
+                                                /*System.out.println("Scrivi il messaggio da inserire come notifica: ");
+                                                String messaggio = input.next();
+                                                inviaNotifica(messaggio);
+                                                break;*/
+
+                                            case 3:
+                                                //ELIMINAZIONE NOTIFICA
+                                                /*System.out.println("\nEliminazione notifica\n");
+                                                visualizzaNotifiche();
+                                                System.out.println("Inserire l'indice della notifica da eliminare: ");
+                                                int idNotificaEliminare = input.nextInt();
+
+                                                eliminaNotifica(idNotificaEliminare);*/
+
+                                                break;
+                                        }
+                                }
+>>>>>>> ghironi
 
                                                 System.out.println("Inserire l'anno di uscita del libro: ");
                                                 int annoUscita = input.nextInt();
@@ -169,15 +301,43 @@ public class main {
                                                 System.out.println("Inserire la lingua del libro: ");
                                                 String lingua = input.next();
 
+<<<<<<< HEAD
                                                 System.out.println("Inserire il numero di copie del libro: ");
                                                 int numeroCopie = input.nextInt();
 
                                                 System.out.println("Inserire l'ISBN del libro: ");
                                                 String isbn = input.next();
+=======
+                                //VISUALIZZA LIBRI
+                                System.out.println("-----------------------------------------------------");
+                                System.out.println("                                                     ");
+                                System.out.println("\n               Visualizza Libri                    ");
+                                System.out.println("                                                     ");
+                                System.out.println("-----------------------------------------------------");
+
+                                visualizzaLibri();
+
+                                System.out.println("Vuoi visualizzare un libro specifico? (1) si (2) no");
+                                int sceltaVisualizzaLibro = input.nextInt();
+
+                                if(sceltaVisualizzaLibro == 1){
+
+                                    System.out.println("Inserire il titolo del libro da visualizzare: ");
+                                    int idLibroVisualizzare = input.nextInt();
+
+                                    visualizzaLibro(idLibroVisualizzare-1);
+
+                                }else if(sceltaVisualizzaLibro == 2){
+
+                                    System.out.println("\n\n");
+
+                                }
+>>>>>>> ghironi
 
                                                 System.out.println("Inserire il codice Dewey del libro: ");
                                                 int codiceDewey = input.nextInt();
 
+<<<<<<< HEAD
                                                 Libro libro = new Libro(titolo, autore, numeroPagine, casaEditrice, annoUscita, lingua, numeroCopie, isbn, codiceDewey);
 
                                                 creaLibro(libro);
@@ -195,6 +355,9 @@ public class main {
                                                 eliminaLibro(idLibroEliminare);
 
                                                 break;
+=======
+                            default:
+>>>>>>> ghironi
 
                                             case 3:
                                                 //MODIFICA LIBRO
@@ -304,6 +467,7 @@ public class main {
 
                 case 2:
 
+                    //REGISTRAZIONE UTENTE REGISTRATO
                     System.out.println("Registrazione Utente Registrato\n");
 
                     System.out.println("Inserire username: ");
@@ -312,7 +476,7 @@ public class main {
                     System.out.println("Inserire password: ");
                     String passwordUtenteReg = input.next();
 
-                    Login login1 = new Login(usernameUtenteReg, passwordUtenteReg, "utente");
+                    VerificaCredenziali(usernameUtenteReg, passwordUtenteReg, "utente");
 
                     boolean exit2 = false;
 
@@ -325,10 +489,18 @@ public class main {
 
                         System.out.println("\nBenvenuto " + utenteRegistrato.getNome() + "!\n");
 
+<<<<<<< HEAD
                         do {
 
                             int sceltaUtenteReg = 0;
                             boolean errore2 = true;
+=======
+                        System.out.println("1. Gestione Notifiche" +
+                                "2. Visualizza libri\n");
+                                //METTERE VISUALIZZA LIBRI
+                        System.out.println("Selezionare un'opzione: ");
+                        int sceltaUtenteReg = input.nextInt();
+>>>>>>> ghironi
 
                             while(errore2) {
                                 try {
@@ -340,6 +512,7 @@ public class main {
                                     System.out.println("Selezionare un'opzione: ");
                                     sceltaUtenteReg = input.nextInt();
 
+<<<<<<< HEAD
                                 } catch (InputMismatchException ime) {
                                     System.out.println("\nErrore! \nInserire un numero da 1 a 3\n");
                                     input.nextLine();
@@ -357,6 +530,45 @@ public class main {
 
                                         int sceltaNotifiche = 0;
                                         boolean errore3 = true;
+=======
+                                //GESTIONE NOTIFICHE
+                                System.out.println("\nGestione notifiche\n");
+                                System.out.println("1. Visualizza notifiche" +
+                                        "\n2. Invia notifica" +
+                                        "\n3. Elimina notifica" +
+                                        "\n4. Torna indietro");
+                                int sceltaNotifiche = input.nextInt();
+
+                                switch(sceltaNotifiche) {
+                                    case 1:
+                                        //VISUALIZZAZIONE NOTIFICHE
+                                                /*System.out.println("\nVisualizzazione notifiche\n");
+                                                visualizzaNotifiche();
+                                                break;*/
+
+                                    case 2:
+                                        //INVIO NOTIFICA
+                                                /*System.out.println("Scrivi il messaggio da inserire come notifica: ");
+                                                String messaggio = input.next();
+                                                inviaNotifica(messaggio);
+                                                break;*/
+
+                                    case 3:
+                                        //ELIMINAZIONE NOTIFICA
+                                                /*System.out.println("\nEliminazione notifica\n");
+                                                visualizzaNotifiche();
+                                                System.out.println("Inserire l'indice della notifica da eliminare: ");
+                                                int idNotificaEliminare = input.nextInt();
+
+                                                eliminaNotifica(idNotificaEliminare);
+
+                                    break;*/
+                                }
+                                break;
+                            case 2:
+
+                                System.out.println("\nVisualizza Libri\n");
+>>>>>>> ghironi
 
                                         while (errore3) {
                                             try {
@@ -471,6 +683,17 @@ public class main {
                     System.out.println("-----------------------------------------------------");
                     visualizzaLibri();
 
+<<<<<<< HEAD
+=======
+                    //VISUALIZZA LIBRI
+                    System.out.println("-----------------------------------------------------");
+                    System.out.println("                                                     ");
+                    System.out.println("                 Visualizza Libri                    ");
+                    System.out.println("                                                     ");
+                    System.out.println("-----------------------------------------------------");
+                    visualizzaLibri();
+
+>>>>>>> ghironi
                     System.out.println("Vuoi visualizzare un libro? (1) si (2) no");
                     int sceltaVisualizzaLibro = input.nextInt();
 
@@ -485,15 +708,27 @@ public class main {
                         System.out.println("\n\n");
 
                     }
+<<<<<<< HEAD
                 break;
                 case 5:
                     //USCITA
+=======
+                    break;
+
+                case 5:
+
+                    //USCITA DAL PROGRAMMA
+>>>>>>> ghironi
                     exit = true;
                     System.out.println("Uscita...");
                     break;
                 default:
 
+<<<<<<< HEAD
                     if (scelta >= 6) {
+=======
+                    if (scelta >= 6){
+>>>>>>> ghironi
 
                         System.out.println("\nScelta non valida\n");
 
