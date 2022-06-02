@@ -12,17 +12,14 @@ public class JSONModifier {
 
     public static void creaLibro (Libro libro) {
 
-<<<<<<< HEAD
         try {
             String titolodaTrovare = libro.getTitolo();
             if (verificaLibro(titolodaTrovare)==false) {
-=======
             try {
 
                 String titolodaTrovare = libro.getTitolo();
 
                 if (verificaLibro(titolodaTrovare)==false) {
->>>>>>> ghironi
 
                 System.out.println("Creazione libro in corso...");
                 JSONParser jsonParser = new JSONParser();
@@ -30,7 +27,6 @@ public class JSONModifier {
                 //Read JSON file
                 JSONArray bookObject = (JSONArray)jsonParser.parse(reader);
 
-<<<<<<< HEAD
                 //Create JSON Object
                 JSONObject book = new JSONObject();
                 book.put("titolo", libro.getTitolo());
