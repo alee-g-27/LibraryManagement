@@ -228,7 +228,7 @@ public class UserJSONModifier {
             String userName = (String) user.get("Nome Utente");
             String userType = (String) user.get("Tipoutente");
 
-            System.out.println("Nome Utente: " + userName + " ➤ Tipo Utente: " + userType);
+            System.out.println("Nome Utente: " + userName + " --> Tipo Utente: " + userType);
 
         }
 

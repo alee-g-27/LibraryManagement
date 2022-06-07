@@ -225,7 +225,7 @@ public class BookJSONModifier {
 
             for(int i = 0;i < booksObject.size();i++) {
 
-                System.out.println((i+1) + " - " +  titoli[i] + " ➤ ID: " + ID[i] + "\n");
+                System.out.println((i+1) + " - " +  titoli[i] + " --> ID: " + ID[i] + "\n");
 
             }
 
